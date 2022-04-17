@@ -9,9 +9,9 @@ class BattlelogPlayers(Base):
 
     id = Column(Integer,primary_key=True,index=True)
     tag = Column(Text,unique = True,index=True)
-    name = Column(String)
+    name = Column(Text)
     brawler_id = Column(Integer,unique =True)
-    brawler_name =Column(String)
+    brawler_name =Column(Text)
     brawler_power =Column(Integer)
     brawler_trophies = Column(Integer)
 

@@ -16,6 +16,7 @@ def get_db():
     finally:
         db.close()
 
+# Getting the number of trophies of a player
 
 @app.get("/trophies/{player_id}")
 async def get_player_trophies(player_id:int,db:Session = Depends(get_db)):
