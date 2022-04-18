@@ -6,6 +6,6 @@ db_url = "postgresql://brawl:123456@localhost/brawl_skills_db"
 
 engine = create_engine(db_url)
 
-SessionLocal = sessionmaker(autocoomit = False, autoflush= False,bind =engine)
+SessionLocal = sessionmaker(autocommit = False, autoflush= False,bind =engine)
 
 Base = declarative_base()
