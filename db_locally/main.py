@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, Request, Response
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from . import models,crud
+from . import models,crud,schemas
 from .database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
@@ -18,7 +18,7 @@ def get_db():
 
 # Getting the number of trophies of a player
 
-@app.get("/trophies/{player_id}")
+@app.get("/trophies/{player_id}", response_model = schemas.Trophies)
 async def get_player_trophies(player_id:int,db:Session = Depends(get_db)):
     trophies = crud.get_player_trophies(db,player_id=player_id)
     if trophies is None:
