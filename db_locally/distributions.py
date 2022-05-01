@@ -2,16 +2,16 @@ import datetime
 
 def player_distribution (lvl:int, arr:list):
    
-    if lvl <=10:arr[0]+=1
-    if 10< lvl <=20:arr[1]+=1
-    if 20< lvl <=30:arr[2]+=1
-    if 30< lvl <=40:arr[3]+=1
-    if 40< lvl <=50:arr[4]+=1  
-    if 50< lvl <=60:arr[5]+=1
-    if 60< lvl <=70:arr[6]+=1
-    if 70< lvl <=80:arr[7]+=1
-    if 80< lvl <=90:arr[8]+=1
-    if 90< lvl:arr[9]+=1
+    if lvl <=10: arr[0]+=1
+    if 10< lvl <=20: arr[1]+=1
+    if 20< lvl <=30: arr[2]+=1
+    if 30< lvl <=40: arr[3]+=1
+    if 40< lvl <=50: arr[4]+=1
+    if 50< lvl <=60: arr[5]+=1
+    if 60< lvl <=70: arr[6]+=1
+    if 70< lvl <=80: arr[7]+=1
+    if 80< lvl <=90: arr[8]+=1
+    if 90< lvl: arr[9]+=1
     
     return arr
 
