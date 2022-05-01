@@ -1,5 +1,5 @@
 from typing import Optional
-from unittest.util import strclass
+
 
 from sqlalchemy import DATETIME
 from pydantic import BaseModel
@@ -11,3 +11,5 @@ class Trophies(BaseModel):
     
     class Config:
         orm_mode = True
+
+
