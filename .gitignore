@@ -3,3 +3,5 @@ db_locally/__pycache__/
 sql_app/
 config.py
 connect.py
+.vscode/
+.json
