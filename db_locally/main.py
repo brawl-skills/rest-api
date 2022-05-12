@@ -19,7 +19,7 @@ def get_db():
 
 
 
-# Getting the number of trophies of a player
+# Getting the number of trophies of a brawler
 
 @app.get("/trophies/{player_id}", response_model = schemas.Trophies)
 async def get_player_trophies(player_id:int,db:Session = Depends(get_db)):
@@ -31,7 +31,7 @@ async def get_player_trophies(player_id:int,db:Session = Depends(get_db)):
 
 # Getting the number of players online(at least 15 min ago)
 
-@app.get("/Number_of_players_online/")
+@app.get("/players/Number_of_players_online/")
 async def number_of_players_online(db:Session = Depends(get_db)):
     players = crud.get_players_info(db)
     # initialisation to  zero of the number of players online
@@ -53,20 +53,15 @@ async def number_of_players_online(db:Session = Depends(get_db)):
 
 # Players distribution by game levels
 
-@app.get("/Players distribution by game levels/")
+@app.get("PlayersBrawlersGears/Players distribution by game levels/")
 async def player_distribution(db:Session= Depends(get_db)):
     player_info = crud.get_players_brawlers_gears(db)
     players_distribution_array = [0]*10
-    # print(type(player_info))
+
     for info in player_info:
         level = int(models.get_levels(info))  #getting the level of a player
-        #print(players_distribution())
-        #print(level)
         distributions.player_distribution(level,players_distribution_array)
-        #print(players_distribution_array)
-
-    
-    #print(players_distribution_array)
+        
     distribution_results = distributions.level_distribution_result_schema(10,players_distribution_array)
     
     return distribution_results
@@ -75,7 +70,7 @@ async def player_distribution(db:Session= Depends(get_db)):
 
 # Number of battles averaged per hour over the last 24 hours
 
-@app.get("/Battles distribution per hour/")
+@app.get("/battlelogs/Battles distribution per hour/")
 async def battles_distribution(db:Session = Depends(get_db)):
     battlelogs_distribution_array = [0]*12
     all_battlelogs = crud.get_battlelogs(db)
@@ -85,3 +80,4 @@ async def battles_distribution(db:Session = Depends(get_db)):
     
     distribution_result = distributions.battles_distribution_result_schema(12, battlelogs_distribution_array)
     return distribution_result
+
