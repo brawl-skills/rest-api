@@ -1,5 +1,12 @@
 .idea
+<<<<<<< HEAD
 config.py
 connect.py
 database.ini
 db_locally/__pycache__/
+=======
+db_locally/__pycache__/
+sql_app/
+config.py
+connect.py
+>>>>>>> 12c6418c7423027c7faf6352768574179197b8f1
