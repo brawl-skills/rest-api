@@ -1,5 +1,11 @@
 .idea
+config.py
+connect.py
+database.ini
+db_locally/__pycache__/
 db_locally/__pycache__/
 sql_app/
 config.py
 connect.py
+.vscode/
+.json
