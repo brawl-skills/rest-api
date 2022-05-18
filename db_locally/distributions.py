@@ -1,5 +1,6 @@
 import datetime
 
+
 def player_distribution (lvl:int, arr:list):
    
     if lvl <=10: arr[0]+=1
@@ -16,11 +17,13 @@ def player_distribution (lvl:int, arr:list):
     return arr
 
 
-#t0 = datetime.datetime.now()-datetime.datetime.now()
+# t0 = datetime.datetime.now()-datetime.datetime.now()
 
 t1 = datetime.datetime.now()
 t0 = t1 - datetime.timedelta(days=1)
-def battlelogs_distribution(t:datetime,arr:list):
+
+
+def battlelogs_distribution(t: datetime, arr: list):
     if t0 < t < t1:
         if t.hour == 0 or t.hour == 1:arr[0]+=1
         if t.hour == 2 or t.hour == 3:arr[1]+=1
@@ -38,23 +41,22 @@ def battlelogs_distribution(t:datetime,arr:list):
     return arr
 
 
-
-def level_distribution_result_schema (n:int, arr :list):
-    x= [10,20,30,40,50,60,70,80,90,100]
+def level_distribution_result_schema (n: int, arr: list):
+    x= [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     for i in range(n):
-        arr[i]= {
+        arr[i] = {
             x[i]: arr[i]
         }
     return arr
 
 
-def battles_distribution_result_schema(n:int, arr: list):
+def battles_distribution_result_schema(n: int, arr: list):
     x = ["00:00","02:00","04:00",
         "06:00","08:00","10:00",
          "12:00","14:00","16:00",
          "18:00","20:00","22:00"]
     for i in range(n):
-        arr[i]= {
+        arr[i] = {
             x[i]: arr[i]
         }
     return arr
