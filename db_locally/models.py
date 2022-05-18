@@ -7,7 +7,7 @@ from .database import Base
 class BattlelogPlayers(Base):
     __tablename__ = "battlelog_players"
 
-    id = Column(Integer,primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     tag = Column(Text, unique=True, index=True)
     name = Column(Text)
     brawler_id = Column(Integer, unique=True)
@@ -21,7 +21,7 @@ class Players(Base):
 
     tag = Column(Text, primary_key=True, index=True)
     name = Column(Text, index=True)
-    last_update = Column(DateTime(timezone=False))
+    last_update_player = Column(DateTime(timezone=False))
     name_color = Column(Text)
     icon_id = Column(Integer)
     trophies = Column(Integer)
@@ -36,11 +36,11 @@ class Players(Base):
     best_time_as_big_brawler = Column(Integer)
     club_tag = Column(Text)
     club_name = Column(Text)
+    last_update_battlelog = Column(DateTime(timezone=False))
     
 
 def get_last_update(i: Players):
-    return i.last_update
-
+    return i.last_update_battlelog
 
 
 class PlayersBrawlersGears(Base):
@@ -70,7 +70,6 @@ class Battlelogs(Base):
     battle_result = Column(Text)
     battle_duration = Column(Integer)
     battle_trophy_change = Column(Integer)
-    star_pl_id = Column(Integer)
     teams = Column(ARRAY(Integer))
 
 
